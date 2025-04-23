@@ -2,20 +2,14 @@ import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 
 const schema = a.schema({
   chat: a.conversation({
-    aiModel: {
-      resourcePath: 'anthropic.claude-3-5-sonnet-20241022-v2:0'
-    },
-    //aiModel: a.ai.model("Claude 3.7 Sonnet"),
+    aiModel: a.ai.model("Claude 3.5 Haiku"),
     systemPrompt: `You are a helpful assistant`,
   })
     .authorization((allow) => allow.owner()),
 
   chatNamer: a
     .generation({
-      aiModel: {
-        resourcePath: 'anthropic.claude-3-5-sonnet-20241022-v2:0'
-      },
-      //aiModel: a.ai.model("Claude 3.7 Sonnet"),
+      aiModel: a.ai.model("Claude 3.5 Haiku"),
       systemPrompt: `You are a helpful assistant that writes descriptive names for conversations. Names should be 2-10 words long`,
     })
     .arguments({
